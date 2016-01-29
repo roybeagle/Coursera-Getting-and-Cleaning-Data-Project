@@ -45,6 +45,6 @@ data_sd<-sapply(master_data[-c(562:563)],sd,na.rm=TRUE)
 #create a tidy data set from the merged data set
 library(data.table)
 mister_table<-data.table(master_data)
-mister_tidy<-master.table[,lapply(.SD,mean),by="Activity,Subject"]
+mister_tidy<-mister_table[,lapply(.SD,mean),by="Activity,Subject"]
 write.table(mister_tidy,file="tidy.csv",sep=",", col.names=NA)
 
